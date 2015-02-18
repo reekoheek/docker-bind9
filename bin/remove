@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker stop bind9
+docker rm -v bind9
