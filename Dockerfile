@@ -1,5 +1,7 @@
 FROM debian
 
+MAINTAINER Ganesha <reekoheek@gmail.com>
+
 COPY root/etc/apt/sources.list /etc/apt/sources.list
 
 RUN apt-get update -y

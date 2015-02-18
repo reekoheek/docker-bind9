@@ -3,9 +3,10 @@
 docker create \
   --name bind9 \
   --restart always \
-  -p 53:53/udp \
-  -p 53:53 \
+  --net host \
   -v $PWD/srv:/srv/bind \
-  xinix/bind9
+  xinix-technology/bind9
 
-# -v /dev/log:/dev/log 
+# -v /dev/log:/dev/log
+#  -p 53:53/udp \
+#  -p 53:53 \
