@@ -3,7 +3,7 @@ bind9:
     file: with-api.yml
     service: bind9
   ports:
-    - "8080:8080"
+    - "8085:8080"
   volumes:
     - "/srv/bind9/cache:/var/cache/bind"
     - "/srv/bind9/lib:/var/lib/bind"
