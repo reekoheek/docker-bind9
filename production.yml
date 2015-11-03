@@ -1,0 +1,11 @@
+bind9:
+  extends:
+    file: with-api.yml
+    service: bind9
+  ports:
+    - "8080:8080"
+  volumes:
+    - "/srv/bind9/cache:/var/cache/bind"
+    - "/srv/bind9/lib:/var/lib/bind"
+    - "/srv/bind9/named.conf.options:/etc/bind/named.conf.options"
+    - "/srv/bind9/named.conf.local:/etc/bind/named.conf.local"

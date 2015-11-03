@@ -4,8 +4,8 @@ use Bono\App;
 return [
     'bind9' => [
         'ns' => [
-            'ns1.xinixhost.com',
-            'ns2.xinixhost.com',
+            'ns1' => '192.168.99.100',
+            'ns2' => '192.168.99.100',
         ],
         'parkingIp' => '192.168.0.1',
         'indexFile' => '/etc/bind/named.conf.local',

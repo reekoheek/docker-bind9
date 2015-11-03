@@ -6,6 +6,14 @@ use Bapi\Model\Zone as MZone;
 
 class Zone extends Base
 {
+
+    public function __construct(array $options = [])
+    {
+        parent::__construct($options);
+
+        $this->routeMap(['GET'], '/reload', [$this, 'reload']);
+    }
+
     public function search(Context $context)
     {
         return [];

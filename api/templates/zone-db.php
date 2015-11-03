@@ -8,11 +8,17 @@ $TTL    604800
                           86400              ; Retry
                         2419200              ; Expire
                          604800 )            ; Negative Cache TTL
-<?php foreach ($config['ns'] as $ns) : ?>
-@                        IN NS               <?php echo $ns ?>.
-<?php endforeach ?>;
+<?php foreach ($config['ns'] as $ns => $ip) : ?>
+@                        IN NS               <?php echo $ns ?>.<?php echo $model['domain'] ?>.
+<?php endforeach ?>
+;
 @                        IN A                <?php echo $model['ip'] ?>
 
+;
+<?php foreach ($config['ns'] as $ns => $ip) : ?>
+<?php echo $ns ?>                      IN A                <?php echo $ip ?>
+
+<?php endforeach ?>
 ;
 <?php foreach($model['records'] as $record): ?>
 <?php if ($record['type'] === 'MX'): ?>

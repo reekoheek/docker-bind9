@@ -37,4 +37,4 @@ COPY api /api
 #   /composer.phar install
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/sbin/named", "-u", "bind", "-g"]
+CMD ["/usr/sbin/named", "-4", "-u", "bind", "-g"]
