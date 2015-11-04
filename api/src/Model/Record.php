@@ -34,8 +34,12 @@ class Record extends Base
         if (!isset(static::$ALLOWED_TYPES[$this['type']])) {
             $context->throwError(400, 'Type '.$this['type'].' not allowed');
         }
-        // $this['id'] = $this['key'].'/'.$this['type'].'/'.$this['value'];
+
         $this['file'] = '/var/lib/bind/sub.'.$context['domain'];
+
+        if (!file_exists($this['file'])) {
+            $context->throwError(400, 'Zone '.$context['domain'].' not found');
+        }
     }
 
     public function persist(Context $context)
