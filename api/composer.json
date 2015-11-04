@@ -13,6 +13,10 @@
   "require": {
     "xinix-technology/bono": "^2.0.0"
   },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "guzzlehttp/guzzle": "^6.1"
+  },
   "autoload": {
     "psr-4": {
       "Bapi\\": "src/"

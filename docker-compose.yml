@@ -2,6 +2,8 @@ bind9:
   extends:
     file: with-api.yml
     service: bind9
+  environment:
+    - BUILD_PROFILE=development
   ports:
     - "8080:8080"
   volumes:
@@ -10,3 +12,11 @@ bind9:
     - "./srv/bind9/named.conf.options:/etc/bind/named.conf.options"
     - "./srv/bind9/named.conf.local:/etc/bind/named.conf.local"
     - "./api:/api"
+tester:
+  extends:
+    file: base.yml
+    service: bind9
+  volumes:
+    - "./srv/bind9/lib:/var/lib/bind"
+    - "./api:/api"
+  working_dir: /api

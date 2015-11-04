@@ -36,7 +36,7 @@ abstract class Base extends UtilCollection
     {
         $this->validate($context);
         if (!$dryRun) {
-            $this->persist();
+            $this->persist($context);
         }
     }
 
@@ -47,20 +47,6 @@ abstract class Base extends UtilCollection
     }
 
     abstract public function validate(Context $context);
-    abstract public function persist();
-}
-
-if (!function_exists('t')) {
-    function t($template, array $data = [])
-    {
-        $templateFile = '../templates/'.$template.'.php';
-        if (!is_readable($templateFile)) {
-            throw new \Exception('Unreadable template '.$template);
-        }
-
-        ob_start();
-        extract($data);
-        include $templateFile;
-        return ob_get_clean();
-    }
+    abstract public function persist(Context $context);
+    abstract public function remove(Context $context);
 }

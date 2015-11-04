@@ -15,6 +15,7 @@ class BodyParser
             'allowedMethods' => [
                 'POST' => true,
                 'PUT' => true,
+                'DELETE' => true,
                 'PATCH' => true,
             ],
             'parsers' => [

@@ -1,5 +1,6 @@
 bind9:
   build: .
+  restart: always
   ports:
     - "53:53"
     - "53:53/udp"
