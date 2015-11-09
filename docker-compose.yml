@@ -1,11 +1,7 @@
 bind9:
   extends:
-    file: with-api.yml
+    file: base.yml
     service: bind9
-  environment:
-    - BUILD_PROFILE=development
-  ports:
-    - "8080:8080"
   volumes:
     - "./srv/bind9/cache:/var/cache/bind"
     - "./srv/bind9/lib:/var/lib/bind"

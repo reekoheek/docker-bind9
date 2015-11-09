@@ -1,6 +1,0 @@
-bind9:
-  extends:
-    file: base.yml
-    service: bind9
-  environment:
-    - USE_API=true

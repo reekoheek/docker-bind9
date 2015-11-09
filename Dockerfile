@@ -3,11 +3,12 @@ FROM debian
 MAINTAINER Ganesha <reekoheek@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV APT_PROXY=http://192.168.1.10:3128
 
 RUN \
   echo "\n\
-Acquire::HTTP::Proxy \"http://192.168.99.101:3128\";\n\
-Acquire::HTTPS::Proxy \"http://192.168.99.101:3128\";\n\
+Acquire::HTTP::Proxy \"$APT_PROXY\";\n\
+Acquire::HTTPS::Proxy \"$APT_PROXY\";\n\
 " > /etc/apt/apt.conf.d/01proxy && \
   echo " \n\
 deb http://kambing.ui.ac.id/debian/ jessie main\n\
