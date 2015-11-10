@@ -12,7 +12,7 @@ class Zone extends Base
             return [
                 'domain' => $matches[1],
             ];
-        }, explode("\n", file_get_contents(static::opts('indexFile'))));
+        }, explode("\n", trim(file_get_contents(static::opts('indexFile')))));
     }
 
     public static function get($row)

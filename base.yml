@@ -1,9 +1,0 @@
-bind9:
-  build: .
-  restart: always
-  net: host
-  ports:
-    - "53:53"
-    - "53:53/udp"
-  environment:
-    - USE_API=true

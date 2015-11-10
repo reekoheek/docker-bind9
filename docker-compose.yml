@@ -1,10 +1,17 @@
 bind9:
-  extends:
-    file: base.yml
-    service: bind9
+  build: .
+  restart: always
+  net: host
+  # ports:
+  #   - "53:53"
+  #   - "53:53/udp"
+  #   - "8080:8080"
+  environment:
+    - USE_API=true
   volumes:
     - "./srv/bind9/cache:/var/cache/bind"
     - "./srv/bind9/lib:/var/lib/bind"
     - "./srv/bind9/named.conf.options:/etc/bind/named.conf.options"
     - "./srv/bind9/named.conf.local:/etc/bind/named.conf.local"
     - "./api:/api"
+
